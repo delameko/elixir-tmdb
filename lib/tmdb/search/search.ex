@@ -33,7 +33,7 @@ defmodule Tmdb.Search do
     search_api("tv", query, params)
   end
 
-  defp search_api(endpoint, query, params \\ %{}) do
+  defp search_api(endpoint, query, params) do
     params = Map.merge(params, %{"query" => query})
     get!("search/#{endpoint}?#{URI.encode_query(params)}").body
   end
